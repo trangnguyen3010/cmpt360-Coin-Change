@@ -99,4 +99,15 @@ public class Change {
         }
     }
 
+    public static void setDesiredAmount(int desiredAmount) {
+        Change.desiredAmount = desiredAmount;
+    }
+
+    public static void setCoinValues(int[] coinValues) {
+        Change.coinValues = coinValues;
+    }
+
+    public static void setMaxLevel(int maxLevel) {
+        Change.maxLevel = maxLevel;
+    }
 }
