@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.Optional;
 
 public class Change {
+    static int desiredAmount;
+    static int[] coinValues;
 
     public static void main(String[] args) {
         try {
@@ -12,7 +14,6 @@ public class Change {
             System.err.println(e.getMessage());
             System.exit(1);
         }
-
         findAllPosibility();
     }
 
@@ -21,7 +22,6 @@ public class Change {
         if (args.length == 0) {
             throw new IllegalArgumentException("There is no arguments!");
         } else {
-            System.out.println("Desired amount: " + args[0]);
             if (args.length <= 1) {
                 throw new IllegalArgumentException("There must be at least 1 coin value!");
             } else {
@@ -39,8 +39,12 @@ public class Change {
                     if (current < 0) {
                         throw new IllegalArgumentException("Amount or coin values can't be smaller than 0!");
                     }
+                    arr[i] = current;
                 }
-                System.out.println("Given coin values: " + Arrays.deepToString(args));
+                desiredAmount = arr[0];
+                System.out.println("Desired amount: " + desiredAmount);
+                coinValues = Arrays.copyOfRange(arr, 1, arr.length);
+                System.out.println("Given coin values: " + Arrays.toString(coinValues));
                 return arr;
             }
         }
