@@ -38,16 +38,23 @@ public class ChangePosibilitySearch {
     public void search(int[] currentSearch, int currentLevel, int currentAmount,
             ArrayList<int[]> possibilities) {
         // Base cases
-        if (currentAmount == desiredAmount) {
+        if (desiredAmount == 0) {
+            return;
+        } else if (currentAmount == desiredAmount) {
             possibilities.add(currentSearch);
+            return;
         } else if (currentAmount > desiredAmount) {
             // do nothing;
+            return;
+        } else if (currentLevel == maxLevel + 1) {
+            return;
         }
         // Recursion
         // Max repetition of the current coin value
         else {
             int amtToFill = desiredAmount - currentAmount;
-            int currentCoinValue = coinValues[currentAmount];
+            int currentCoinValue = coinValues[currentLevel];
+            System.out.println("current level: " + currentLevel);
             if (currentCoinValue > desiredAmount) {
                 // do nothing
                 return;
@@ -56,7 +63,7 @@ public class ChangePosibilitySearch {
             // i is the number of repetition of the current coin value
             for (int i = numNodeToSearch; i >= 0; i--) {
                 int[] newSearch = currentSearch.clone();
-                System.out.println("Size of new search: " + newSearch.length);
+                System.err.println("Size of new search: " + newSearch.length);
                 newSearch[currentLevel] = i;
                 search(newSearch, currentLevel + 1, currentAmount + i * currentCoinValue, possibilities);
             }
