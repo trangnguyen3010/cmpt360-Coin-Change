@@ -48,10 +48,9 @@ public class Change {
                     }
                     arr[i] = current;
                 }
-                desiredAmount = arr[0];
+                setDesiredAmount(arr[0]);
                 System.out.println("Desired amount: " + desiredAmount);
-                coinValues = Arrays.copyOfRange(arr, 1, arr.length);
-                maxLevel = coinValues.length - 1;
+                setCoinValues(Arrays.copyOfRange(arr, 1, arr.length));
                 System.out.println("Given coin values: " + Arrays.toString(coinValues));
                 return arr;
             }
@@ -105,9 +104,6 @@ public class Change {
 
     public static void setCoinValues(int[] coinValues) {
         Change.coinValues = coinValues;
-    }
-
-    public static void setMaxLevel(int maxLevel) {
-        Change.maxLevel = maxLevel;
+        Change.maxLevel = coinValues.length - 1;
     }
 }
