@@ -80,18 +80,22 @@ public class ChangePosibilitySearch {
             ArrayList<int[]> possibilities) {
         int amtToFill = desiredAmount - currentAmount;
 
+        // If the amount to fill is 0, then we have found a solution
         if (amtToFill == 0) {
             possibilities.add(currentSearch);
             return;
-        } else if (currentLevel > maxLevel) {
+        }
+        // If we have gone pass the max level, then we have gone through all coin values
+        else if (currentLevel > maxLevel) {
             return;
         }
 
         int currentCoinValue = coinValues[currentLevel];
+        // If the current coin value is smaller than the amount to fill, then we can use it
         if (currentCoinValue <= amtToFill) {
-            int numNodeToSearch = Math.floorDiv(amtToFill, currentCoinValue);
-            // i is the number of repetition of the current coin value
-            for (int i = numNodeToSearch; i >= 0; i--) {
+            int maxNumRepeat = Math.floorDiv(amtToFill, currentCoinValue);
+            // i is a possible repetition of the current coin value
+            for (int i = maxNumRepeat; i >= 0; i--) {
                 int currentNodeAmt = i * currentCoinValue;
 
                 // if the amount of current node is already larger than the amount to fill, no need to search further
