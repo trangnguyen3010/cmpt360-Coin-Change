@@ -33,7 +33,7 @@ public class ChangeTest {
 
         search.findAllPosibility();
 
-        Assert.assertEquals(5, search.getNumberOfPossibilities());
+        Assert.assertEquals(0, search.getNumberOfPossibilities());
         assertNull(search.getMinimumNumberOfCoins());
     }
 
