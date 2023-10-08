@@ -2,15 +2,57 @@ package main;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.stream.IntStream;
 
 public class ChangePosibilitySearch {
     private int desiredAmount;
     private int[] coinValues;
     private int maxLevel;
 
+    private ArrayList<int[]> posibilities;
+
     public ChangePosibilitySearch(int desiredAmount, int[] coinValues) {
         setDesiredAmount(desiredAmount);
         setCoinValues(coinValues);
+        findAllPosibility();
+    }
+
+    public int getNumberOfPossibilities() {
+        return posibilities.size();
+    }
+
+    public int[] getMinimumNumberOfCoins() {
+        if (posibilities.isEmpty()) {
+            return null;
+        } else {
+            return posibilities.get(posibilities.size() - 1);
+        }
+    }
+
+    public String getResultString() {
+        StringBuilder resultBuilder = new StringBuilder();
+        resultBuilder.append("Desired amount: ").append(desiredAmount).append("\n");
+        resultBuilder.append("Given coin values: ").append(Arrays.toString(coinValues)).append("\n");
+        resultBuilder.append("The number of possibilities: ").append(getNumberOfPossibilities()).append("\n");
+        if (getNumberOfPossibilities() == 0) {
+            resultBuilder.append("IMPOSSIBLE!");
+        } else {
+            resultBuilder.append("The minimum number of coins: ")
+                    .append(Arrays.stream(getMinimumNumberOfCoins()).sum())
+                    .append("\n");
+            resultBuilder.append("(");
+            IntStream.range(0, maxLevel + 1).boxed()
+                    .forEach(i -> {
+                        if (getMinimumNumberOfCoins()[i] != 0) {
+                            resultBuilder.append(getMinimumNumberOfCoins()[i])
+                                    .append("@")
+                                    .append(coinValues[i])
+                                    .append(", ");
+                        }
+                    });
+            resultBuilder.append(")");
+        }
+        return resultBuilder.toString();
     }
 
     public void setDesiredAmount(int desiredAmount) {
@@ -24,14 +66,14 @@ public class ChangePosibilitySearch {
         this.maxLevel = coinValues.length - 1;
     }
 
-    public ArrayList<int[]> findAllPosibility() {
+    public void findAllPosibility() {
         ArrayList<int[]> possibilities = new ArrayList<>();
 
         int[] currentSearch = new int[coinValues.length];
         Arrays.fill(currentSearch, 0);
         search(currentSearch, 0, 0, possibilities);
 
-        return possibilities;
+        this.posibilities = possibilities;
     }
 
     public void search(int[] currentSearch, int currentLevel, int currentAmount,

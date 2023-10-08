@@ -1,6 +1,5 @@
 package main;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Change {
@@ -15,15 +14,7 @@ public class Change {
 
             ChangePosibilitySearch changePosibilitySearch = new ChangePosibilitySearch(desiredAmount, coinValues);
 
-            System.out.println("Desired amount: " + desiredAmount);
-            System.out.println("Given coin values: " + Arrays.toString(coinValues));
-            ArrayList<int[]> posibilities = changePosibilitySearch.findAllPosibility();
-            if (posibilities.isEmpty()) {
-                System.out.println("IMPOSSIBLE!");
-            } else {
-                System.out.println("The number of posibilitties: " + posibilities.size());
-                System.out.println("The minimum number of coins: " + Arrays.toString(posibilities.get(-1)));
-            }
+            System.out.println(changePosibilitySearch.getResultString());
         } catch (Exception e) {
             System.err.println(e.getMessage());
             System.exit(1);
@@ -41,7 +32,7 @@ public class Change {
                 int size = args.length;
                 int[] arr = new int[size];
                 for (int i = 0; i < size; i++) {
-                    Integer current;
+                    int current;
                     try {
                         current = Integer.parseInt(args[i]);
                     } catch (Exception e) {
