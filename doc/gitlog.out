@@ -1,0 +1,113 @@
+commit c0a961d7aea8b7f93b2b71fe2fb48c366138b2eb
+Author: Trang Nguyen <trang.nguyen@benevity.com>
+Date:   Sun Oct 8 11:27:48 2023 -0600
+
+    add test script and update README.md
+
+commit fbbae45963e9bd97b0f9d9d7a12e555a74a46ad4
+Author: Trang Nguyen <trang.nguyen@benevity.com>
+Date:   Sun Oct 8 11:10:40 2023 -0600
+
+    add script and README.md
+
+commit 50fce76f2fe04774a826677cfb26b7c337827afc
+Author: Trang Nguyen <trang.nguyen@benevity.com>
+Date:   Sun Oct 8 10:07:44 2023 -0600
+
+    add comments
+
+commit e2413da963a42801caa6809b1912f084e7cfb6fb
+Author: Trang Nguyen <trang.nguyen@benevity.com>
+Date:   Sun Oct 8 10:05:21 2023 -0600
+
+    fix typo
+
+commit 11bf8229bb2ea31557a266aa875712e8b1f3f5ca
+Author: Trang Nguyen <trang.nguyen@benevity.com>
+Date:   Sun Oct 8 10:04:58 2023 -0600
+
+    add tests for the result for minimum coin change
+
+commit 8eae546eb80b672ca149ec1909cc128deb85c347
+Author: Trang Nguyen <trang.nguyen@benevity.com>
+Date:   Sun Oct 8 09:48:15 2023 -0600
+
+    a bit of refactoring and formatting
+
+commit 55f02a75c8b7583fef7af28f4cac8b4fe1ba73d5
+Author: Trang Nguyen <trang.nguyen@benevity.com>
+Date:   Sat Oct 7 22:02:48 2023 -0600
+
+    pass all tests
+
+commit e6fa29c1b69e3600895e7d80c1eeb2c08832c78c
+Author: Trang Nguyen <trang.nguyen@benevity.com>
+Date:   Sat Oct 7 21:48:10 2023 -0600
+
+    add more tests
+
+commit 4daf48ea2176f425603c1f48c560e7be50fb3002
+Author: Nguyen <len054@usask.ca>
+Date:   Fri Oct 6 16:58:43 2023 -0600
+
+    add some tests
+
+commit 6fce4f50486a52f1ae82363df6f174244c5287b2
+Author: Nguyen <len054@usask.ca>
+Date:   Fri Oct 6 16:22:35 2023 -0600
+
+    add command line doc to compile and run app
+
+commit 434f5a5af211aa98f5ee5604f937389facba3e07
+Author: Nguyen <len054@usask.ca>
+Date:   Fri Oct 6 16:01:05 2023 -0600
+
+    refactoring
+
+commit 20f9a9d65ffee21f75da16f9623bf0e6709f1d3a
+Author: Nguyen <len054@usask.ca>
+Date:   Fri Oct 6 15:39:11 2023 -0600
+
+    someminor reorganization
+
+commit 298bf18904c9521d55acb8ad318bef2897c4ba52
+Author: Nguyen <len054@usask.ca>
+Date:   Fri Oct 6 15:31:19 2023 -0600
+
+    use the setters in Change
+
+commit 2af5c470aa9be6ffbc9cc04577ea318abd3fb776
+Author: Nguyen <len054@usask.ca>
+Date:   Fri Oct 6 15:27:56 2023 -0600
+
+    add setters for Change's attributes
+
+commit 1196a8300e927c170377066c6771125362258ac0
+Author: Nguyen <len054@usask.ca>
+Date:   Fri Oct 6 15:25:06 2023 -0600
+
+    a sketch of the recursion, not working. Need to add test
+
+commit 87742b5f19081c40dfd933206b4fa3353fcd6469
+Author: Nguyen <len054@usask.ca>
+Date:   Fri Oct 6 14:43:40 2023 -0600
+
+    refactor validation and set atrributes based on given command line arguments' values
+
+commit 65a6607b47d809d53846416db9541403d8bfc540
+Author: Nguyen <len054@usask.ca>
+Date:   Fri Oct 6 14:34:53 2023 -0600
+
+    add one more validation. do some minor refactoring
+
+commit cf36c7973f86486c52769ad5ddd83d0999aaa00a
+Author: Nguyen <len054@usask.ca>
+Date:   Fri Oct 6 14:27:44 2023 -0600
+
+    refactor the validation of commandline arguments
+
+commit f0ade5a5d0a08ac0d5fb10884243215d25207f15
+Author: Nguyen <len054@usask.ca>
+Date:   Fri Oct 6 14:09:15 2023 -0600
+
+    basic validation of commandline arguments
