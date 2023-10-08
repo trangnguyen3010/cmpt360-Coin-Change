@@ -9,7 +9,7 @@ public class ChangePosibilitySearch {
     private int[] coinValues;
     private int maxLevel;
 
-    private ArrayList<int[]> posibilities;
+    private ArrayList<int[]> possibilities;
 
     public ChangePosibilitySearch(int desiredAmount, int[] coinValues) {
         setDesiredAmount(desiredAmount);
@@ -18,14 +18,14 @@ public class ChangePosibilitySearch {
     }
 
     public int getNumberOfPossibilities() {
-        return posibilities.size();
+        return possibilities.size();
     }
 
     public int[] getMinimumNumberOfCoins() {
-        if (posibilities.isEmpty()) {
+        if (possibilities.isEmpty()) {
             return null;
         } else {
-            return posibilities.get(posibilities.size() - 1);
+            return possibilities.get(possibilities.size() - 1);
         }
     }
 
@@ -73,7 +73,7 @@ public class ChangePosibilitySearch {
         Arrays.fill(currentSearch, 0);
         search(currentSearch, 0, 0, possibilities);
 
-        this.posibilities = possibilities;
+        this.possibilities = possibilities;
     }
 
     public void search(int[] currentSearch, int currentLevel, int currentAmount,
