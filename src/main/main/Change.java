@@ -1,9 +1,7 @@
 package main;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Optional;
 
 public class Change {
 
@@ -20,7 +18,7 @@ public class Change {
             System.out.println("Desired amount: " + desiredAmount);
             System.out.println("Given coin values: " + Arrays.toString(coinValues));
             ArrayList<int[]> posibilities = changePosibilitySearch.findAllPosibility();
-            if (posibilities.size() == 0) {
+            if (posibilities.isEmpty()) {
                 System.out.println("IMPOSSIBLE!");
             } else {
                 System.out.println("The number of posibilitties: " + posibilities.size());
@@ -43,7 +41,7 @@ public class Change {
                 int size = args.length;
                 int[] arr = new int[size];
                 for (int i = 0; i < size; i++) {
-                    Integer current = null;
+                    Integer current;
                     try {
                         current = Integer.parseInt(args[i]);
                     } catch (Exception e) {

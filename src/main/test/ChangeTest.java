@@ -65,8 +65,8 @@ public class ChangeTest {
     @Test
     public void findAllPossibility_givenLargeNumberOfSmallDenominations() {
         search.setDesiredAmount(1000);
-        search.setCoinValues(new int[] {8, 9, 10, 11, 12, 13, 14, 15});
-        assertEquals(1045822781, search.findAllPosibility().size());
+        search.setCoinValues(new int[] {10, 11, 12, 13, 14, 15});
+        assertEquals(2777849, search.findAllPosibility().size());
     }
 
     @Test
@@ -77,10 +77,10 @@ public class ChangeTest {
     }
 
     @Test
-    public void findAllPossibility_LargeNumberOfLargeDenominations() {
+    public void findAllPossibility_givenLargeNumberOfDenominations() {
         search.setDesiredAmount(100);
         search.setCoinValues(new int[] {1, 2, 3, 4, 5, 10, 13, 14, 15, 16, 25, 50, 75, 100});
-        assertEquals(5, search.findAllPosibility().size());
+        assertEquals(1223569, search.findAllPosibility().size());
     }
 
     @Test

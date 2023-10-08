@@ -18,14 +18,13 @@ public class ChangePosibilitySearch {
     }
 
     public void setCoinValues(int[] coinValues) {
+        // Sort coin values
+        Arrays.sort(coinValues);
         this.coinValues = coinValues;
         this.maxLevel = coinValues.length - 1;
     }
 
     public ArrayList<int[]> findAllPosibility() {
-        // Sort coin values
-        Arrays.sort(coinValues);
-
         ArrayList<int[]> possibilities = new ArrayList<>();
 
         int[] currentSearch = new int[coinValues.length];
@@ -37,35 +36,30 @@ public class ChangePosibilitySearch {
 
     public void search(int[] currentSearch, int currentLevel, int currentAmount,
             ArrayList<int[]> possibilities) {
-        // Base cases
-        if (desiredAmount == 0) {
-            return;
-        } else if (currentAmount == desiredAmount) {
+        int amtToFill = desiredAmount - currentAmount;
+
+        if (amtToFill == 0) {
             possibilities.add(currentSearch);
             return;
-        } else if (currentAmount > desiredAmount) {
-            // do nothing;
-            return;
-        } else if (currentLevel == maxLevel + 1) {
+        } else if (currentLevel > maxLevel) {
             return;
         }
-        // Recursion
-        // Max repetition of the current coin value
-        else {
-            int amtToFill = desiredAmount - currentAmount;
-            int currentCoinValue = coinValues[currentLevel];
-            System.out.println("current level: " + currentLevel);
-            if (currentCoinValue > desiredAmount) {
-                // do nothing
-                return;
-            }
+
+        int currentCoinValue = coinValues[currentLevel];
+        if (currentCoinValue <= amtToFill) {
             int numNodeToSearch = Math.floorDiv(amtToFill, currentCoinValue);
             // i is the number of repetition of the current coin value
             for (int i = numNodeToSearch; i >= 0; i--) {
-                int[] newSearch = currentSearch.clone();
-                System.err.println("Size of new search: " + newSearch.length);
-                newSearch[currentLevel] = i;
-                search(newSearch, currentLevel + 1, currentAmount + i * currentCoinValue, possibilities);
+                int currentNodeAmt = i * currentCoinValue;
+
+                // if the amount of current node is already larger than the amount to fill, no need to search further
+                if (currentNodeAmt <= amtToFill) {
+                    int[] newSearch = currentSearch.clone();
+                    newSearch[currentLevel] = i;
+                    if (currentLevel <= maxLevel) {
+                        search(newSearch, currentLevel + 1, currentAmount + currentNodeAmt, possibilities);
+                    }
+                }
             }
         }
     }
