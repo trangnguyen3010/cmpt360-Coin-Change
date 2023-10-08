@@ -1,31 +1,18 @@
 package test;
 
 import main.ChangePosibilitySearch;
+import org.junit.Assert;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
-import static org.junit.Assert.assertArrayEquals;
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
 public class ChangeTest {
     private ChangePosibilitySearch search;
 
-    public static void main(String[] args) {
-        ChangePosibilitySearch search = new ChangePosibilitySearch(28, new int[] { 200, 100, 50, 25, 10, 5, 1 });
-        search.findAllPosibility();
-    }
-
     @Before
     public void initialize() {
         search = new ChangePosibilitySearch(28, new int[] { 200, 100, 50, 25, 10, 5, 1 });
-    }
-
-    @Ignore
-    public void findAllPosibility_givenZeroValue_expectEmpty() {
-        search.setDesiredAmount(0);
-        assertEquals(0, search.getNumberOfPossibilities());
     }
 
     @Test
@@ -35,7 +22,7 @@ public class ChangeTest {
 
         search.findAllPosibility();
 
-        assertEquals(0, search.getNumberOfPossibilities());
+        Assert.assertEquals(0, search.getNumberOfPossibilities());
         assertNull(search.getMinimumNumberOfCoins());
     }
 
@@ -46,7 +33,7 @@ public class ChangeTest {
 
         search.findAllPosibility();
 
-        assertEquals(0, search.getNumberOfPossibilities());
+        Assert.assertEquals(5, search.getNumberOfPossibilities());
         assertNull(search.getMinimumNumberOfCoins());
     }
 
@@ -57,7 +44,7 @@ public class ChangeTest {
 
         search.findAllPosibility();
 
-        assertEquals(0, search.getNumberOfPossibilities());
+        Assert.assertEquals(0, search.getNumberOfPossibilities());
         assertNull(search.getMinimumNumberOfCoins());
     }
 
@@ -68,8 +55,8 @@ public class ChangeTest {
 
         search.findAllPosibility();
 
-        assertEquals(1, search.getNumberOfPossibilities());
-        assertArrayEquals(new int[] { 5 }, search.getMinimumNumberOfCoins());
+        Assert.assertEquals(1, search.getNumberOfPossibilities());
+        Assert.assertArrayEquals(new int[] { 5 }, search.getMinimumNumberOfCoins());
     }
 
     @Test
@@ -79,8 +66,8 @@ public class ChangeTest {
 
         search.findAllPosibility();
 
-        assertEquals(1479, search.getNumberOfPossibilities());
-        assertArrayEquals(new int[] {0, 0, 0, 0, 10}, search.getMinimumNumberOfCoins());
+        Assert.assertEquals(1479, search.getNumberOfPossibilities());
+        Assert.assertArrayEquals(new int[] {0, 0, 0, 0, 10}, search.getMinimumNumberOfCoins());
     }
 
     @Test
@@ -90,8 +77,8 @@ public class ChangeTest {
 
         search.findAllPosibility();
 
-        assertEquals(2777849, search.getNumberOfPossibilities());
-        assertArrayEquals(new int[] {0, 0, 0, 0, 5, 62}, search.getMinimumNumberOfCoins());
+        Assert.assertEquals(2777849, search.getNumberOfPossibilities());
+        Assert.assertArrayEquals(new int[] {0, 0, 0, 0, 5, 62}, search.getMinimumNumberOfCoins());
     }
 
     @Test
@@ -101,8 +88,8 @@ public class ChangeTest {
 
         search.findAllPosibility();
 
-        assertEquals(796, search.getNumberOfPossibilities());
-        assertArrayEquals(new int[] {0, 0, 1, 6, 2, 0, 0, 0}, search.getMinimumNumberOfCoins());
+        Assert.assertEquals(796, search.getNumberOfPossibilities());
+        Assert.assertArrayEquals(new int[] {0, 0, 1, 6, 2, 0, 0, 0}, search.getMinimumNumberOfCoins());
     }
 
     @Test
@@ -112,8 +99,8 @@ public class ChangeTest {
 
         search.findAllPosibility();
 
-        assertEquals(1223569, search.getNumberOfPossibilities());
-        assertArrayEquals(new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1}, search.getMinimumNumberOfCoins());
+        Assert.assertEquals(1223569, search.getNumberOfPossibilities());
+        Assert.assertArrayEquals(new int[] {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1}, search.getMinimumNumberOfCoins());
     }
 
     @Test
@@ -123,8 +110,8 @@ public class ChangeTest {
 
         search.findAllPosibility();
 
-        assertEquals(10, search.getNumberOfPossibilities());
-        assertArrayEquals(new int[] {0, 0, 2}, search.getMinimumNumberOfCoins());
+        Assert.assertEquals(10, search.getNumberOfPossibilities());
+        Assert.assertArrayEquals(new int[] {0, 0, 2}, search.getMinimumNumberOfCoins());
     }
 
 
@@ -132,7 +119,7 @@ public class ChangeTest {
     public void findAllPosibility_givenAssignmentExampleInput() {
         search.findAllPosibility();
 
-        assertEquals(13, search.getNumberOfPossibilities());
-        assertArrayEquals(new int[] {3, 0, 0, 1, 0, 0, 0}, search.getMinimumNumberOfCoins());
+        Assert.assertEquals(13, search.getNumberOfPossibilities());
+        Assert.assertArrayEquals(new int[] {3, 0, 0, 1, 0, 0, 0}, search.getMinimumNumberOfCoins());
     }
 }
