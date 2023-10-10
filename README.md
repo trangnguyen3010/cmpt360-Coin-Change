@@ -15,7 +15,7 @@ The minimum number of coins: 1
 (1@28, )
 ```
 
-./test.sh <command_line_arguments_to_the_coin_change_problem>
+./test.sh
 
 e.g.
 ```
