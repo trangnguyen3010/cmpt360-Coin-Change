@@ -34,3 +34,46 @@ OK (10 tests)
 
 G4PCV44VFV:cmpt360-asn1 trang.nguyen$ 
 ```
+
+## Problem:
+### Written Question
+6. (10 pts) Design a recursive algorithm that counts up all the ways that change can be made using an unlimited number of coins of given de-nomination. For example, using the standard Canadian coins (including the obsolete penny), $0.28 can be made in 13 distinct ways:
+<br>• one quarter and three pennies
+<br>• two dimes, one nickel, and three pennies
+<br>• two dimes and eight pennies
+<br>• one dime, three nickels, and three pennies
+<br>• one dime, two nickels, and eight pennies
+<br>• one dime, one nickel, and thirteen pennies
+<br>• one dime and eighteen pennies
+<br>• five nickels and three pennies
+<br>• four nickels and eight pennies
+<br>• three nickels and thirteen pennies
+<br>• two nickels and eighteen pennies
+<br>• one nickel and twenty-three pennies
+<br>• twenty-eight pennies
+<br>Show that all possibilities are counted – i.e. that your algorithm is correct. What is its time complexity?
+
+Solution: [written.pdf](written.pdf)
+
+### Programming Question
+Implement your making change algorithm in Java, as a class called Change. It should also emit the minimum number of coins required.
+You need to accept the total amount ot be made as the first command-
+line argument, and then the denominations of the acceptable coins as
+the remaining command-line arguments. For example,
+```
+java Change 28 200 100 50 25 10 5 1
+```
+emits
+```
+23: with a minimum of 4 coins: 1@25, 3@1
+```
+Note that some examples, much like the question about making numbers on A0, are impossible:
+```
+java Change 5 7 2
+```
+emits
+```
+impossible
+```
+But as you learned on A0, any number greater than 6 is possible with
+those two coins.
